@@ -13,6 +13,7 @@ import lombok.Data;
 @Data
 public class Account {
     @Id
+    @Column(updatable = false, nullable = false, unique = true)
     String id;
 
     @NotBlank
