@@ -1,9 +1,11 @@
 package com.ease.easepensetracker.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.ease.easepensetracker.model.Category;
 
+@Repository
 public interface CategoryRepository extends JpaRepository<Category, String> {
     /*
     * Common JpaRepository methods (already available, no need to implement):
