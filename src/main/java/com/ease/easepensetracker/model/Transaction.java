@@ -2,6 +2,8 @@ package com.ease.easepensetracker.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -33,8 +35,9 @@ public class Transaction {
     @Column(nullable = false)
     private double amount;
 
-    @Column(nullable = false) 
-    private String type; // default to category type
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private CategoryType type;
 
     @ManyToOne
     @JoinColumn(name = "account_id", nullable = false)
