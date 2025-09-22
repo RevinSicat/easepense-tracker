@@ -21,7 +21,7 @@ public class Transaction {
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
-    private CategoryModel category;
+    private Category category;
 
     @Column(nullable = false) 
     private String title; //default to Category name if not use format <categoryname>: <title>
@@ -38,7 +38,7 @@ public class Transaction {
 
     @ManyToOne
     @JoinColumn(name = "account_id", nullable = false)
-    private AccountModel account;
+    private Account account;
 
     private String notes; // can be null
 
