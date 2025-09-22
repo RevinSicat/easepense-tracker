@@ -3,11 +3,14 @@ package com.ease.easepensetracker.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.ease.easepensetracker.model.Account;
 import com.ease.easepensetracker.repository.AccountRepository;
 
 import jakarta.transaction.Transactional;
 
+@Service
 public class AccountService {
     private final AccountRepository accountRepository;
 
