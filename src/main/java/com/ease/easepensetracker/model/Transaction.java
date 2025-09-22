@@ -45,7 +45,14 @@ public class Transaction {
 
     private String notes; // can be null
 
-    public Transaction() {
-        this.id = UUID.randomUUID().toString();
+    public Transaction(String id, Category category, String title, Date date, double amount, CategoryType type, Account account, String notes) {
+        this.id = (id != null) ? id : UUID.randomUUID().toString();
+        this.category = category;
+        this.title = (title != null && !title.isBlank()) ? title : category.getName();
+        this.date = (date != null) ? date : new Date();
+        this.amount = amount;
+        this.type = type;
+        this.account = account;
+        this.notes = notes;
     }
 }

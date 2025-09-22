@@ -24,7 +24,9 @@ public class Account {
     @Column(nullable = false)
     private double balance;
 
-    public Account() {
-        this.id = UUID.randomUUID().toString();
+    public Account(String id, String name, double balance) {
+        this.id = (id != null) ? id : UUID.randomUUID().toString();
+        this.name = name;
+        this.balance = balance;
     }
 }

@@ -25,7 +25,10 @@ public class Category {
     @Column(nullable = false)
     private CategoryType type;
 
-    public Category() {
-        this.id = UUID.randomUUID().toString();
+    public Category(String id, String name, CategoryType type) {
+        this.id = (id != null) ? id : UUID.randomUUID().toString();
+        this.name = name;
+        this.type = type;
     }
+
 }
