@@ -6,6 +6,8 @@ import java.util.Optional;
 import com.ease.easepensetracker.model.Account;
 import com.ease.easepensetracker.repository.AccountRepository;
 
+import jakarta.transaction.Transactional;
+
 public class AccountService {
     private final AccountRepository accountRepository;
 
@@ -13,6 +15,7 @@ public class AccountService {
         this.accountRepository = accountRepository;
     }
 
+    @Transactional
     public Account createAccount(Account account){
         return accountRepository.save(account);
     }
@@ -21,10 +24,12 @@ public class AccountService {
         return accountRepository.findAll();
     }
 
+    @Transactional
     public Account updateAccount(Account account) {
         return accountRepository.save(account);
     }
 
+    @Transactional
     public void deleteAccount(String id) {
         accountRepository.deleteById(id);
     }
