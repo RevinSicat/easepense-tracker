@@ -16,6 +16,7 @@ import java.util.UUID;
 @Data
 public class Transaction {
     @Id
+    @Column(updatable = false, nullable = false, unique = true)
     private String id;
 
     @ManyToOne
