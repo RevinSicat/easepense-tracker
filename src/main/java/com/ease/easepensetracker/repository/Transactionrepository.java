@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.ease.easepensetracker.model.Transaction;
 
-public interface Transactionrepository extends JpaRepository<Transaction, String> {
+public interface TransactionRepository extends JpaRepository<Transaction, String> {
     /*
     * Common JpaRepository methods (already available, no need to implement):
     *
@@ -24,7 +24,7 @@ public interface Transactionrepository extends JpaRepository<Transaction, String
     *
     * void deleteById(String id); // Delete by primary key
     *
-    * void delete(Account entity); // Delete an account entity
+    * void delete(Transaction entity); // Delete an account entity
     *
     * void deleteAll(); // Delete all Transaction
     *
