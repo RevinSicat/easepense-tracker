@@ -4,11 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ease.easepensetracker.model.Account;
 import com.ease.easepensetracker.repository.AccountRepository;
 
-import jakarta.transaction.Transactional;
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class AccountService {
@@ -23,12 +24,16 @@ public class AccountService {
         return accountRepository.save(account);
     }
 
+    @Transactional(readOnly = true)
     public List<Account> getAllAccounts(){
         return accountRepository.findAll();
     }
 
     @Transactional
     public Account updateAccount(Account account) {
+        if (!accountRepository.existsById(account.getId())) {
+            throw new EntityNotFoundException("Account not found with id " + account.getId());
+        }
         return accountRepository.save(account);
     }
 
@@ -37,6 +42,7 @@ public class AccountService {
         accountRepository.deleteById(id);
     }
 
+    @Transactional(readOnly = true)
     public Optional<Account> getAccountById(String id){
         return accountRepository.findById(id);
     }
